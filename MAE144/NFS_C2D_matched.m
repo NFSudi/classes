@@ -18,7 +18,7 @@ function [Gz]=NFS_C2D_matched(Gs,h, omegab)
         end
         znum(find(znum==-1,1))=inf; %changing one of the z=-1 to infinity 
     end    
-    K=RR_evaluate(Gs,1i*omegab); % find the gain at s=0
+    K=RR_evaluate(Gs,1i*omegab); % find the gain at s=i*omega bar
     Gz=RR_tf(znum,zden,K); % put in together to one tf
     Gz.h=h; % so that it is not labeled as continuous time transfer function from rules of RR_tf
 end
